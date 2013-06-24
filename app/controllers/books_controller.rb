@@ -26,22 +26,16 @@ class BooksController < ApplicationController
   end
 
   def lend
-    isbn = params[:isbn]
-
-    exist(isbn)
+    @book = Book.where("isbn = ?", params[:isbn]).first
+    if @book.nil?
+      amazon(isbn)
+    end
   end
 
   def return
   end
 
   private
-  def exist(isbn)
-    @book = Book.where("isbn = ?", isbn).first
-    if @book.nil?
-      amazon(isbn)
-    end
-  end
-
   def amazon(isbn)
     @book = Book.new
 
