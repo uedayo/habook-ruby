@@ -5,7 +5,7 @@ include Amazon::AWS
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all(:order => "updatedAt DESC")
+    @books = Book.all(:order => "updated_at DESC")
   end
 
   def show
@@ -28,25 +28,32 @@ class BooksController < ApplicationController
   def lend
     isbn = params[:isbn]
 
-    amazon(isbn)
+    exist(isbn)
   end
 
   def return
   end
 
   private
+  def exist(isbn)
+    @book = Book.where("isbn = ?", isbn).first
+    if @book.nil?
+      amazon(isbn)
+    end
+  end
+
   def amazon(isbn)
     @book = Book.new
 
-    il = ItemLookup.new('ISBN', ItemId: isbn, SearchIndex: 'Books')
+    itemLookup = ItemLookup.new('ISBN', ItemId: isbn, SearchIndex: 'Books')
     request  = Search::Request.new
-    response = request.search il
+    response = request.search itemLookup
     
     item = response.item_lookup_response.items.item
     @book.title = item.item_attributes.title.to_s
     @book.author = item.item_attributes.author.to_s
     @book.manufacturer = item.item_attributes.manufacturer.to_s
-    @book.isbn = isbn
+    @book.isbn = isbn.to_s
     @book.detail_page_url = item.detail_page_url.to_s
     @book.small_image = item.small_image.url.to_s
     @book.medium_image = item.medium_image.url.to_s
