@@ -38,3 +38,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'ruby-aaws', '=0.8.1', :path => 'ruby-aaws-0.8.1'

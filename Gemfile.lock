@@ -1,3 +1,8 @@
+PATH
+  remote: ruby-aaws-0.8.1
+  specs:
+    ruby-aaws (0.8.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -113,6 +118,7 @@ DEPENDENCIES
   jquery-rails
   rails (= 3.2.13)
   rb-readline (~> 0.4.2)
+  ruby-aaws (= 0.8.1)!
   sass-rails (~> 3.2.3)
   sqlite3
   therubyracer
