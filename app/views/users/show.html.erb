@@ -1,0 +1,7 @@
+<h1><%= @user.name %></h1>
+
+<%= link_to image_tag(@user.profile_image_url), @user.profile_image_url%>
+<p><%= @user.name %></p>
+<p><%= @user.screen_name %></p>
+
+<%= link_to 'home', users_path %>

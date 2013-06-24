@@ -30,6 +30,7 @@ class BooksController < ApplicationController
     if @book.nil?
       amazon(isbn)
     end
+    @users = User.all(:order => "updated_at DESC")
   end
 
   def return
