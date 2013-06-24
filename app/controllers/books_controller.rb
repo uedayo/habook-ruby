@@ -26,25 +26,31 @@ class BooksController < ApplicationController
   end
 
   def lend
+    isbn = params[:isbn]
+
+    amazon(isbn)
   end
 
   def return
   end
 
-  def amazon
-#    @isbn = params[:isbn]
-    @isbn = '9784797372274'
-    il = ItemLookup.new('ISBN', ItemId: @isbn, SearchIndex: 'Books')
+  private
+  def amazon(isbn)
+    @book = Book.new
+
+    il = ItemLookup.new('ISBN', ItemId: isbn, SearchIndex: 'Books')
     request  = Search::Request.new
     response = request.search il
     
     item = response.item_lookup_response.items.item
-    p item.item_attributes.title
-    p item.item_attributes.author
-    p item.item_attributes.manufacturer
-    p item.detail_page_url
-    p item.small_image.url
-
+    @book.title = item.item_attributes.title.to_s
+    @book.author = item.item_attributes.author.to_s
+    @book.manufacturer = item.item_attributes.manufacturer.to_s
+    @book.isbn = isbn
+    @book.detail_page_url = item.detail_page_url.to_s
+    @book.small_image = item.small_image.url.to_s
+    @book.medium_image = item.medium_image.url.to_s
+    @book.save
   end
 
 end

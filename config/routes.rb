@@ -1,9 +1,8 @@
 Habook::Application.routes.draw do
 
   resources :books do
-    get 'lend', :on => :collection
-    get 'return', :on => :collection
-    get 'amazon', :on => :collection
+    get 'lend/:isbn', :contoller => 'books', :action => 'lend', :on => :collection
+    get 'return/:isbn', :contoller => 'books', :action => 'return', :on => :collection
   end
 
   # The priority is based upon order of creation:

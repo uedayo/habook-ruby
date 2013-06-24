@@ -15,19 +15,18 @@ ActiveRecord::Schema.define(:version => 20130621092411) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
-    t.string   "publisher"
-    t.string   "smallImage"
-    t.string   "mediumImage"
-    t.integer  "listPrice"
+    t.string   "author"
+    t.string   "manufacturer"
+    t.string   "small_image"
+    t.string   "medium_image"
+    t.integer  "list_price"
     t.string   "isbn"
-    t.string   "detailPageUrl"
+    t.string   "detail_page_url"
     t.integer  "number"
     t.integer  "status"
-    t.datetime "publishedAt"
-    t.datetime "createdAt"
-    t.datetime "updatedAt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "published_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

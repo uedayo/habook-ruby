@@ -13,15 +13,15 @@ Book.delete_all
 
 Book.create(
     title: 'RailsによるアジャイルWebアプリケーション開発 第4版',
-    publisher: 'オーム社',
-    smallImage: 'http://ec2.images-amazon.com/images/I/51Gibg-iYTL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU09_.jpg',
-    mediumImage: 'http://ec2.images-amazon.com/images/I/51Gibg-iYTL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU09_.jpg',
-    listPrice: 3360,
+    manufacturer: 'オーム社',
+    small_image: 'http://ec2.images-amazon.com/images/I/51Gibg-iYTL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU09_.jpg',
+    medium_image: 'http://ec2.images-amazon.com/images/I/51Gibg-iYTL._BO2,204,203,200_PIsitb-sticker-arrow-click,TopRight,35,-76_AA300_SH20_OU09_.jpg',
+    list_price: 3360,
     isbn: '4274068668',
-    detailPageUrl: 'http://www.amazon.co.jp/dp/4274068668',
+    detail_page_url: 'http://www.amazon.co.jp/dp/4274068668',
     number: 1,
     status: 0,
-    publishedAt: '2011-12-01',
-    createdAt: '2013-06-21 11:55:00.373973',
-    updatedAt: '2013-06-21 11:55:00.373973'
+    published_at: '2011-12-01',
+    created_at: '2013-06-21 11:55:00.373973',
+    updated_at: '2013-06-21 11:55:00.373973'
 )
