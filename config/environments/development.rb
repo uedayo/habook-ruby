@@ -34,4 +34,7 @@ Habook::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Stop logger message "Served asset - 304 Not Modified (20ms)"
+  config.assets.logger = false
 end
