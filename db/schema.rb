@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20130624090314) do
     t.string   "detail_page_url"
     t.integer  "number"
     t.integer  "status"
+    t.integer  "user_id"
     t.datetime "published_at"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false

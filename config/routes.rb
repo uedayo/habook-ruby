@@ -2,12 +2,12 @@ Habook::Application.routes.draw do
 
   resources :books do
     get 'lend/:isbn', :contoller => 'books', :action => 'lend', :on => :collection
+    get 'change/:isbn/:user_id', :contoller => 'books', :action => 'lend', :on => :collection
     get 'return/:isbn', :contoller => 'books', :action => 'return', :on => :collection
   end
 
   resources :users do
-    get 'search', :controller => 'users', :action => 'search', :on => :collection
-    post :new
+    get 'search/:screen_name', :controller => 'users', :action => 'search', :on => :collection
   end
 
   # The priority is based upon order of creation:

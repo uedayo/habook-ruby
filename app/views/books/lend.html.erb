@@ -1,28 +1,4 @@
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <td></td>
-            <td>タイトル</td>
-            <td>著者</td>
-            <td>出版社</td>
-            <td>ISBN</td>
-            <td></td>
-            <td>状態</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr id="book_<%= @book.id %>">
-            <td><%= link_to image_tag(@book.medium_image, :width => "50"), @book.detail_page_url %></td>
-            <td><%= link_to @book.title, book_path(@book) %></td>
-            <td><%= @book.author %></td>
-            <td><%= @book.manufacturer %></td>
-            <td><%= @book.isbn %></td>
-            <td><%= link_to "amazon", @book.detail_page_url%></td>
-            <td><p class="btn btn-primary">在庫あり</p></td>
-        </tr>
-    </tbody>
-</table>
-
+<%= render 'detail' %>
 
 <table class="table table-striped table-hover">
     <thead>
@@ -39,7 +15,7 @@
             <td><%= link_to image_tag(user.profile_image_url, :width => "50"), "https://twitter.com/" + user.screen_name %></td>
             <td><%= link_to user.screen_name, user_path(user) %></td>
             <td><%= link_to user.name, user_path(user) %></td>
-            <td><%= link_to "貸出", edit_user_path(user), :class => "btn btn-primary" %></td>
+            <td><%= link_to "貸出", "", :class => "btn btn-primary" %></td>
         </tr>
         <% end %>
     </tbody>

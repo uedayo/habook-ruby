@@ -21,6 +21,7 @@ Book.create(
     detail_page_url: 'http://www.amazon.co.jp/dp/4274068668',
     number: 1,
     status: 0,
+    user_id: 1,
     published_at: '2011-12-01',
     created_at: '2013-06-21 11:55:00.373973',
     updated_at: '2013-06-21 11:55:00.373973'

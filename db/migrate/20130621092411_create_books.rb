@@ -11,6 +11,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :detail_page_url
       t.integer :number
       t.integer :status
+      t.integer :user_id
       t.datetime :published_at
       t.datetime :created_at
       t.datetime :updated_at

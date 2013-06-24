@@ -26,7 +26,8 @@ class BooksController < ApplicationController
   end
 
   def lend
-    @book = Book.where("isbn = ?", params[:isbn]).first
+    isbn = params[:isbn]
+    @book = Book.where("isbn = ?", isbn).first
     if @book.nil?
       amazon(isbn)
     end
@@ -34,6 +35,15 @@ class BooksController < ApplicationController
   end
 
   def return
+  end
+
+  def change
+    @user = User.find(params[:id])
+    if @post.update_attrbutes(params[:post])
+      redirect_to posts_path, notice: 'updated!'
+    else
+      render action: 'edit'
+    end
   end
 
   private

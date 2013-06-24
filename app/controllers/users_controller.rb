@@ -12,15 +12,15 @@ class UsersController < ApplicationController
   end
 
   def search
-  end
-
-  def new
     @user = User.new
     json = getTwitterJSON(params[:screen_name])
     @user.name = json["name"]
     @user.screen_name = json["screen_name"]
     @user.profile_image_url = json["profile_image_url"]
-    redirect_to edit_user_path
+  end
+
+  def new
+    @user = User.new
   end
 
   def create
