@@ -6,6 +6,7 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all(:order => "updated_at DESC")
+    @users = User.all(:order => "updated_at DESC")
   end
 
   def show
@@ -34,12 +35,18 @@ class BooksController < ApplicationController
     @users = User.all(:order => "updated_at DESC")
   end
 
-  def return
-  end
-
   def lendupdate
     @book = Book.where('isbn = ?', params[:isbn]).first
     if @book.update_attributes(:user_id => params[:user_id], :status => '1')
+      redirect_to books_path, notice: 'updated!'
+    else
+      render action: 'index'
+    end
+  end
+
+  def return
+    @book = Book.where('isbn = ?', params[:isbn]).first
+    if @book.update_attributes(:user_id => '0', :status => '0')
       redirect_to books_path, notice: 'updated!'
     else
       render action: 'index'
