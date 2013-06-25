@@ -12,13 +12,13 @@
     </thead>
     <tbody>
         <tr id="book_<%= @book.id %>">
-            <td><%= link_to image_tag(@book.medium_image, :width => "50"), @book.detail_page_url %></td>
+            <td><%= link_to image_tag(@book.medium_image, :width => "100"), @book.detail_page_url %></td>
             <td><%= link_to @book.title, book_path(@book) %></td>
             <td><%= @book.author %></td>
             <td><%= @book.manufacturer %></td>
             <td><%= @book.isbn %></td>
             <td><%= link_to "amazon", @book.detail_page_url%></td>
-            <td><p class="btn btn-primary">貸出可能</p></td>
+            <td><p class="text-success">貸出可能</p></td>
         </tr>
     </tbody>
 </table>

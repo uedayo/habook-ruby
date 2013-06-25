@@ -38,7 +38,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @post.update_attrbutes(params[:post])
+    if @post.update_attributes(params[:post])
       redirect_to posts_path, notice: 'updated!'
     else
       render action: 'edit'

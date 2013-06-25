@@ -37,12 +37,12 @@ class BooksController < ApplicationController
   def return
   end
 
-  def change
-    @user = User.find(params[:id])
-    if @post.update_attrbutes(params[:post])
-      redirect_to posts_path, notice: 'updated!'
+  def lendupdate
+    @book = Book.where("isbn = ?", params[:isbn]).first
+    if @book.update_attribute(:user_id, params[:user_id])
+      redirect_to books_path, notice: 'updated!'
     else
-      render action: 'edit'
+      render action: 'index'
     end
   end
 
