@@ -68,6 +68,8 @@ class BooksController < ApplicationController
     @book.detail_page_url = item.detail_page_url.to_s
     @book.small_image = item.small_image.url.to_s
     @book.medium_image = item.medium_image.url.to_s
+    @book.status = 0
+    @book.user_id = 0
     @book.save
   end
 
