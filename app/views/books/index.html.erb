@@ -9,7 +9,7 @@
             <td></td>
             <td></td>
             <td>状態</td>
-            <td></td>
+            <td>貸出先</td>
         </tr>
     </thead>
     <tbody>
@@ -21,6 +21,7 @@
                     <td><%= link_to "詳細", book_path(book) %></td>
                     <td><%= link_to "amazon", book.detail_page_url%></td>
                     <td><a class="btn btn-success btn-primary disabled">貸出可能</a></td>
+                    <td></td>
                 </tr>
             <% else %>
                 <tr id="book_<%= book.id %>" class="danger">
@@ -28,8 +29,8 @@
                     <td><%= link_to book.title, book_path(book) %></td>
                     <td><%= link_to "詳細", book_path(book) %></td>
                     <td><%= link_to "amazon", book.detail_page_url%></td>
-                    <td><a class="btn btn-danger btn-primary disabled">貸出中<%= book.user_id %></a></td>
-                    <td><%= link_to image_tag(book.profile_image_url, :width => "50"), "https://twitter.com/" + book.screen_name %></td>
+                    <td><a class="btn btn-danger btn-primary disabled">貸出中</a></td>
+                    <td><%= link_to image_tag(book.user.profile_image_url, :width => "50"), "https://twitter.com/" + book.user.screen_name %></td>
                 </tr>
             <% end %>
         <% end %>

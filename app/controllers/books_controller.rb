@@ -6,17 +6,6 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all(:order => "updated_at DESC")
-
-    @books.each do |book|
-      if book.user_id != 0
-        user = User.find(book.user_id)
-        book.screen_name = user.screen_name
-        book.name = user.name
-        book.profile_image_url = user.profile_image_url
-      end
-    end
-
-    p @books
   end
 
   def show
