@@ -12,7 +12,7 @@
     <tbody>
         <% @users.each do |user| %>
         <tr id="user_<%= user.id %>">
-            <td><%= link_to image_tag(user.profile_image_url, :width => "50"), "https://twitter.com/" + user.screen_name %></td>
+            <td><%= link_to image_tag(user.profile_image_url, :width => "100"), "https://twitter.com/" + user.screen_name %></td>
             <td><%= link_to user.screen_name, user_path(user) %></td>
             <td><%= link_to user.name, user_path(user) %></td>
             <td><%= link_to "貸出", bookupdate_path(@book.isbn, user.id), :class => "btn btn-success btn-primary" %></td>
