@@ -30,7 +30,7 @@
                     <td><%= link_to "詳細", book_path(book) %></td>
                     <td><%= link_to "amazon", book.detail_page_url%></td>
                     <td><a class="btn btn-danger btn-primary disabled">貸出中</a></td>
-                    <td><%= link_to image_tag(book.user.profile_image_url, :width => "50"), "https://twitter.com/" + book.user.screen_name %></td>
+                    <td><%= link_to image_tag(book.user.profile_image_url, :width => "50"), "https://twitter.com/" + book.user.screen_name %><br /><%= book.user.name %></td>
                 </tr>
             <% end %>
         <% end %>

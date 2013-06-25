@@ -11,14 +11,30 @@
         </tr>
     </thead>
     <tbody>
-        <tr id="book_<%= @book.id %>">
-            <td><%= link_to image_tag(@book.medium_image, :width => "100"), @book.detail_page_url %></td>
-            <td><%= link_to @book.title, book_path(@book) %></td>
-            <td><%= @book.author %></td>
-            <td><%= @book.manufacturer %></td>
-            <td><%= @book.isbn %></td>
-            <td><%= link_to "amazon", @book.detail_page_url%></td>
-            <td><p class="text-success"><%= @book.user_id %></p></td>
-        </tr>
+        <% if @book.status == 0 %>
+            <tr id="book_<%= @book.id %>">
+                <td><%= link_to image_tag(@book.medium_image, :width => "100"), @book.detail_page_url %></td>
+                <td><%= link_to @book.title, book_path(@book) %></td>
+                <td><%= @book.author %></td>
+                <td><%= @book.manufacturer %></td>
+                <td><%= @book.isbn %></td>
+                <td><%= link_to "詳細", book_path(@book) %></td>
+                <td><%= link_to "amazon", @book.detail_page_url%></td>
+                <td><a class="btn btn-success btn-primary disabled">貸出可能</a></td>
+                <td></td>
+            </tr>
+        <% else %>
+            <tr id="book_<%= @book.id %>">
+                <td><%= link_to image_tag(@book.medium_image, :width => "100"), @book.detail_page_url %></td>
+                <td><%= link_to @book.title, book_path(@book) %></td>
+                <td><%= @book.author %></td>
+                <td><%= @book.manufacturer %></td>
+                <td><%= @book.isbn %></td>
+                <td><%= link_to "詳細", book_path(@book) %></td>
+                <td><%= link_to "amazon", @book.detail_page_url%></td>
+                <td><a class="btn btn-danger btn-primary disabled">貸出中</a></td>
+                <td><%= link_to image_tag(@book.user.profile_image_url, :width => "50"), "https://twitter.com/" + @book.user.screen_name %><br /><%= @book.user.name %></td>
+            </tr>
+        <% end %>
     </tbody>
 </table>
