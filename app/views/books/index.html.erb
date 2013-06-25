@@ -14,11 +14,11 @@
     <tbody>
         <% @books.each do |book| %>
         <tr id="book_<%= book.id %>" class="success">
-            <td><%= link_to image_tag(book.medium_image, :width => "50"), book.detail_page_url %></td>
+            <td><%= link_to image_tag(book.medium_image, :width => "100"), book.detail_page_url %></td>
             <td><%= link_to book.title, book_path(book) %></td>
             <td><%= link_to "詳細", book_path(book) %></td>
             <td><%= link_to "amazon", book.detail_page_url%></td>
-            <td><a class="btn btn-success btn-primary disabled">貸出可能</a></td>
+            <td><a class="btn btn-success btn-primary disabled">貸出中<%= book.user_id %></a></td>
         </tr>
         <% end %>
     </tbody>

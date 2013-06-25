@@ -38,8 +38,8 @@ class BooksController < ApplicationController
   end
 
   def lendupdate
-    @book = Book.where("isbn = ?", params[:isbn]).first
-    if @book.update_attribute(:user_id, params[:user_id])
+    @book = Book.where('isbn = ?', params[:isbn]).first
+    if @book.update_attributes(:user_id => params[:user_id], :status => '1')
       redirect_to books_path, notice: 'updated!'
     else
       render action: 'index'

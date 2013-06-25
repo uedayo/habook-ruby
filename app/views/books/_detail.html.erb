@@ -18,7 +18,7 @@
             <td><%= @book.manufacturer %></td>
             <td><%= @book.isbn %></td>
             <td><%= link_to "amazon", @book.detail_page_url%></td>
-            <td><p class="text-success">貸出可能</p></td>
+            <td><p class="text-success"><%= @book.user_id %></p></td>
         </tr>
     </tbody>
 </table>
