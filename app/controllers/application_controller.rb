@@ -8,7 +8,7 @@ $twitter_image_width = 64
 $book_image_width = 100
 $book_image_large_width = 200
 
-$app_title = "ほんどこ？"
+$app_title = "ホンドコ？"
 
 $book_title = "タイトル"
 $book_author = "著者"
@@ -22,6 +22,7 @@ $book_all = "本一覧"
 $user_screen_name = "Twitter ID"
 $user_name = "名前"
 $user_all = "ユーザ一覧"
+$user_add = "ユーザ登録はこちらから"
 
 $action_lend = "借りる"
 $action_return = "返す"
