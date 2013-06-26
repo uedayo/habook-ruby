@@ -13,7 +13,7 @@
     <tbody>
         <% if @book.lend_status == 0 %>
             <tr id="book_<%= @book.id %>">
-                <td><%= link_to image_tag(@book.medium_image, :width => $book_image_width), @book.detail_page_url %></td>
+                <td><%= link_to image_tag(@book.medium_image, :width => $book_image_large_width), @book.detail_page_url %></td>
                 <td><%= link_to @book.title, book_path(@book) %></td>
                 <td><%= @book.author %></td>
                 <td><%= @book.manufacturer %></td>
@@ -25,7 +25,7 @@
             </tr>
         <% else %>
             <tr id="book_<%= @book.id %>">
-                <td><%= link_to image_tag(@book.medium_image, :width => $book_image_width), @book.detail_page_url %></td>
+                <td><%= link_to image_tag(@book.medium_image, :width => $book_image_large_width), @book.detail_page_url %></td>
                 <td><%= link_to @book.title, book_path(@book) %></td>
                 <td><%= @book.author %></td>
                 <td><%= @book.manufacturer %></td>

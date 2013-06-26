@@ -1,7 +1,7 @@
 <div>
     <p>右端のボタンで貸出状態を変更できます。</p>
 </div>
-<table class="table table-striped table-hover">
+<table class="table table-hover">
     <thead>
         <tr>
             <td></td>
@@ -24,7 +24,7 @@
                     <td></td>
                 </tr>
             <% else %>
-                <tr id="book_<%= book.id %>" class="danger">
+                <tr id="book_<%= book.id %>" class="error">
                     <td><%= link_to image_tag(book.medium_image, :width => $book_image_width), book.detail_page_url %></td>
                     <td><%= link_to book.title, book_path(book) %></td>
                     <td><%= link_to "詳細", book_path(book) %></td>

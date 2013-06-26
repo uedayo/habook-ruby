@@ -4,3 +4,4 @@ end
 
 $twitter_image_width = 128
 $book_image_width = 100
+$book_image_large_width = 200
