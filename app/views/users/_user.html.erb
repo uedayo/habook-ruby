@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, :html => {:class => "form-horizontal"}) do |f| %>
 
 <% if @user.errors.any? %>
 <ul>
@@ -8,24 +8,27 @@
 </ul>
 <% end %>
 
-<div class="field input-prepend">
-    <%= f.label :screen_name %>
-    <span class="add-on">@</span>
-    <%= f.text_area :screen_name, :rows => 1 %>
-</div>
-
-<div class="field">
-    <%= f.label :name %>
-    <%= f.text_area :name, :rows => 1 %>
-</div>
-
-<div class="field">
-    <%= f.label :profile_image_url %>
-    <%= f.text_area :profile_image_url, :rows => 1 %>
-</div>
-
-<div class="field">
-  <%= f.submit %>
-</div>
-
+  <div class="control-group">
+    <%= f.label :screen_name, :class => 'control-label', :for => 'screen_name' %>
+    <div class="controls">
+    <%= f.text_area :screen_name, :rows => 1, :id => 'screen_name' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label', :for => 'name' %>
+    <div class="controls">
+    <%= f.text_area :name, :rows => 1, :id => 'name' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :profile_image_url, :class => 'control-label', :for => 'profile_image_url' %>
+    <div class="controls">
+    <%= f.text_area :profile_image_url, :rows => 3, :id => 'profile_image_url' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+    <%= f.submit '登録', :class => 'btn' %>
+    </div>
+  </div>
 <% end %>

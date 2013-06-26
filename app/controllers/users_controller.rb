@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def twitter
+  end
+
   def search
     @user = User.new
     json = getTwitterJSON(params[:screen_name])

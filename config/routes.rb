@@ -7,7 +7,7 @@ Habook::Application.routes.draw do
   end
 
   resources :users do
-    get 'search/:screen_name', :controller => 'users', :action => 'search', :on => :collection
+    post 'search', :controller => 'users', :action => 'search', :on => :collection
   end
 
   # The priority is based upon order of creation:
