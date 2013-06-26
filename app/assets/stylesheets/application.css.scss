@@ -14,3 +14,10 @@ body { font-size: 18px; }
         width: 30%
     }
 }
+
+@media (max-width: 767px) {
+  body {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}

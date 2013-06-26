@@ -15,7 +15,7 @@ $book_author = "著者"
 $book_manufacturer = "出版社"
 $book_isbn = "ISBN"
 $book_status = "状態"
-$book_able = "貸出可能"
+$book_able = "貸出可"
 $book_unable = "貸出中"
 $book_all = "本一覧"
 
