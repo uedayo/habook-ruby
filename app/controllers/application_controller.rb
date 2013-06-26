@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 end
 
-$twitter_image_width = 128
+$twitter_image_width = 64
 $book_image_width = 100
 $book_image_large_width = 200
 
