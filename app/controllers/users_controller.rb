@@ -48,6 +48,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to users_path
+  end
+
   private
   def getTwitterJSON(screen_name)
     content = open('https://cdn.api.twitter.com/1/users/lookup.json?screen_name=' + screen_name).read

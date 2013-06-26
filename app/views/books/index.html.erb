@@ -14,9 +14,9 @@
     </thead>
     <tbody>
         <% @books.each do |book| %>
-            <% if book.status == 0 %>
+            <% if book.lend_status == 0 %>
                 <tr id="book_<%= book.id %>" class="success">
-                    <td><%= link_to image_tag(book.medium_image, :width => "100"), book.detail_page_url %></td>
+                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width), book.detail_page_url %></td>
                     <td><%= link_to book.title, book_path(book) %></td>
                     <td><%= link_to "詳細", book_path(book) %></td>
                     <td><%= link_to "amazon", book.detail_page_url%></td>
@@ -25,12 +25,12 @@
                 </tr>
             <% else %>
                 <tr id="book_<%= book.id %>" class="danger">
-                    <td><%= link_to image_tag(book.medium_image, :width => "100"), book.detail_page_url %></td>
+                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width), book.detail_page_url %></td>
                     <td><%= link_to book.title, book_path(book) %></td>
                     <td><%= link_to "詳細", book_path(book) %></td>
                     <td><%= link_to "amazon", book.detail_page_url%></td>
                     <td><a class="btn btn-danger btn-primary disabled">貸出中</a></td>
-                    <td><%= link_to image_tag(book.user.profile_image_url, :width => "50"), "https://twitter.com/" + book.user.screen_name %><br /><%= book.user.name %></td>
+                    <td><%= link_to image_tag(book.user.profile_image_url, :width => $twitter_image_width), "https://twitter.com/" + book.user.screen_name %><br /><%= book.user.name %></td>
                 </tr>
             <% end %>
         <% end %>
