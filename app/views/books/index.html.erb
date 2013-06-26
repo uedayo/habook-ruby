@@ -1,36 +1,30 @@
-<div>
-    <p>右端のボタンで貸出状態を変更できます。</p>
-</div>
 <table class="table table-hover">
     <thead>
         <tr>
-            <td></td>
-            <td>タイトル</td>
-            <td></td>
-            <td></td>
-            <td>状態</td>
-            <td>貸出先</td>
+            <td class="center"></td>
+            <td class="center"><%= $book_title %></td>
+            <td class="center"></td>
+            <td class="center"><%= $book_status %></td>
+            <td class="center"></td>
         </tr>
     </thead>
     <tbody>
         <% @books.each do |book| %>
             <% if book.lend_status == 0 %>
                 <tr id="book_<%= book.id %>">
-                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width), book.detail_page_url %></td>
-                    <td><%= link_to book.title, book_path(book) %></td>
-                    <td><%= link_to "詳細", book_path(book) %></td>
-                    <td><%= link_to "amazon", book.detail_page_url%></td>
-                    <td><a class="btn btn-success btn-primary disabled">貸出可能</a></td>
+                    <td class="center"><%= link_to image_tag(book.medium_image, :width => $book_image_width), book.detail_page_url %></td>
+                    <td class="title"><%= link_to book.title, book_path(book) %></td>
+                    <td class="center"><%= link_to "amazon", book.detail_page_url%></td>
+                    <td class="center"><a class="btn btn-success btn-primary btn-large disabled"><%= $book_able %></a></td>
                     <td></td>
                 </tr>
             <% else %>
                 <tr id="book_<%= book.id %>" class="error">
-                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width), book.detail_page_url %></td>
-                    <td><%= link_to book.title, book_path(book) %></td>
-                    <td><%= link_to "詳細", book_path(book) %></td>
-                    <td><%= link_to "amazon", book.detail_page_url%></td>
-                    <td><a class="btn btn-danger btn-primary disabled">貸出中</a></td>
-                    <td><%= link_to image_tag(book.user.profile_image_url, :width => $twitter_image_width), "https://twitter.com/" + book.user.screen_name %><br /><%= book.user.name %></td>
+                    <td class="center"><%= link_to image_tag(book.medium_image, :width => $book_image_width), book.detail_page_url %></td>
+                    <td class="title"><%= link_to book.title, book_path(book) %></td>
+                    <td class="center"><%= link_to "amazon", book.detail_page_url%></td>
+                    <td class="center"><a class="btn btn-danger btn-large disabled"><%= $book_unable %></a></td>
+                    <td class="center"><%= link_to image_tag(book.user.profile_image_url, :width => $twitter_image_width), "https://twitter.com/" + book.user.screen_name %><br /><%= book.user.name %></td>
                 </tr>
             <% end %>
         <% end %>

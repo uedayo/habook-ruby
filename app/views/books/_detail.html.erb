@@ -1,39 +1,38 @@
 <table class="table">
     <thead>
         <tr>
+            <td class="center"></td>
+            <td class="center"><%= $book_title %></td>
+            <td class="center"><%= $book_author %></td>
+            <td class="center"><%= $book_manufacturer %></td class="center">
+            <td class="center"><%= $book_isbn %></td>
             <td></td>
-            <td>タイトル</td>
-            <td>著者</td>
-            <td>出版社</td>
-            <td>ISBN</td>
+            <td class="center"><%= $book_status %></td>
             <td></td>
-            <td>状態</td>
         </tr>
     </thead>
     <tbody>
         <% if @book.lend_status == 0 %>
             <tr id="book_<%= @book.id %>">
-                <td><%= link_to image_tag(@book.medium_image, :width => $book_image_large_width), @book.detail_page_url %></td>
-                <td><%= link_to @book.title, book_path(@book) %></td>
-                <td><%= @book.author %></td>
-                <td><%= @book.manufacturer %></td>
-                <td><%= @book.isbn %></td>
-                <td><%= link_to "詳細", book_path(@book) %></td>
-                <td><%= link_to "amazon", @book.detail_page_url%></td>
-                <td><a class="btn btn-success btn-primary disabled">貸出可能</a></td>
-                <td></td>
+                <td class="center"><%= link_to image_tag(@book.medium_image, :width => $book_image_large_width), @book.detail_page_url %></td>
+                <td class="title"><%= link_to @book.title, book_path(@book) %></td>
+                <td class="center"><%= @book.author %></td>
+                <td class="center"><%= @book.manufacturer %></td>
+                <td class="center"><%= @book.isbn %></td>
+                <td class="center"><%= link_to "amazon", @book.detail_page_url%></td>
+                <td class="center"><a class="btn btn-success btn-primary disabled"><%= book_able %></a></td>
+                <td class="center"></td>
             </tr>
         <% else %>
             <tr id="book_<%= @book.id %>">
-                <td><%= link_to image_tag(@book.medium_image, :width => $book_image_large_width), @book.detail_page_url %></td>
-                <td><%= link_to @book.title, book_path(@book) %></td>
-                <td><%= @book.author %></td>
-                <td><%= @book.manufacturer %></td>
-                <td><%= @book.isbn %></td>
-                <td><%= link_to "詳細", book_path(@book) %></td>
-                <td><%= link_to "amazon", @book.detail_page_url%></td>
-                <td><a class="btn btn-danger btn-primary disabled">貸出中</a></td>
-                <td><%= link_to image_tag(@book.user.profile_image_url, :width => $twitter_image_width), "https://twitter.com/" + @book.user.screen_name %><br /><%= @book.user.name %></td>
+                <td class="center"><%= link_to image_tag(@book.medium_image, :width => $book_image_large_width), @book.detail_page_url %></td>
+                <td class="title"><%= link_to @book.title, book_path(@book) %></td>
+                <td class="center"><%= @book.author %></td>
+                <td class="center"><%= @book.manufacturer %></td>
+                <td class="center"><%= @book.isbn %></td>
+                <td class="center"><%= link_to "amazon", @book.detail_page_url%></td>
+                <td class="center"><a class="btn btn-danger btn-primary disabled"><%= $book_unable %></a></td>
+                <td class="center"><%= link_to image_tag(@book.user.profile_image_url, :width => $twitter_image_width), "https://twitter.com/" + @book.user.screen_name %><br /><%= @book.user.name %></td>
             </tr>
         <% end %>
     </tbody>

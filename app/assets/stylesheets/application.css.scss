@@ -1,2 +1,16 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
+
+body { font-size: 18px; }
+
+.table {
+    .center {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .title {
+        vertical-align: middle;
+        width: 30%
+    }
+}

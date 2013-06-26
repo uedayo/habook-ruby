@@ -3,22 +3,21 @@
 <table class="table table-striped table-hover">
     <thead>
         <tr>
-            <td></td>
-            <td>Screen name</td>
-            <td>Name</td>
-            <td>Operation</td>
+            <td class="center"></td>
+            <td class="center"><%= $user_screen_name %></td>
+            <td class="center"><%= $user_name %></td>
+            <td class="center"></td>
         </tr>
     </thead>
     <tbody>
         <% @users.each do |user| %>
         <tr id="user_<%= user.id %>">
-            <td><%= link_to image_tag(user.profile_image_url, :width => $twitter_image_width), "https://twitter.com/" + user.screen_name %></td>
-            <td><%= link_to user.screen_name, user_path(user) %></td>
-            <td><%= link_to user.name, user_path(user) %></td>
-            <td><%= link_to "貸出", bookupdate_path(@book.isbn, user.id), :class => "btn btn-success btn-primary btn-large" %></td>
+            <td class="center"><%= link_to image_tag(user.profile_image_url, :width => $twitter_image_width), "https://twitter.com/" + user.screen_name %></td>
+            <td class="center"><%= link_to user.screen_name, user_path(user) %></td>
+            <td class="center"><%= link_to user.name, user_path(user) %></td>
+            <td class="center"><%= link_to $action_lend, bookupdate_path(@book.isbn, user.id), :class => "btn btn-success btn-primary btn-large" %></td>
         </tr>
         <% end %>
     </tbody>
 </table>
 
-<%= link_to 'home', books_path %>
