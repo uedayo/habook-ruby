@@ -1,3 +1,6 @@
+<% if @books.empty? %>
+<div class="center">まずは本の登録をしましょう！</div>
+<% else %>
 <table class="table table-hover">
     <thead>
         <tr>
@@ -30,3 +33,4 @@
         <% end %>
     </tbody>
 </table>
+<% end %>
