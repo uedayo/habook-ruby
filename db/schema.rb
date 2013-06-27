@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624090314) do
+ActiveRecord::Schema.define(:version => 20130627092859) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -28,7 +28,10 @@ ActiveRecord::Schema.define(:version => 20130624090314) do
     t.datetime "published_at"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "volume"
   end
+
+  add_index "books", ["isbn", "volume"], :name => "index_books_on_isbn_and_volume", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -37,5 +40,7 @@ ActiveRecord::Schema.define(:version => 20130624090314) do
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
   end
+
+  add_index "users", ["screen_name"], :name => "index_users_on_screen_name", :unique => true
 
 end
