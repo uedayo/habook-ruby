@@ -16,7 +16,7 @@
                     <td class="title"><%= link_to book.title, book_path(book) %></td>
                     <td class="center"><%= link_to "amazon", book.detail_page_url%></td>
                     <td class="center"><a class="btn btn-success btn-primary btn-large disabled"><%= $book_able %></a></td>
-                    <td></td>
+                    <td class="center"><%= link_to $action_lend, booklend_path(book.isbn), :class => "btn btn-success btn-large" %></td>
                 </tr>
             <% else %>
                 <tr id="book_<%= book.id %>" class="error">

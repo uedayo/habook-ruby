@@ -1,9 +1,9 @@
 Habook::Application.routes.draw do
 
   resources :books do
-    get 'lend/:isbn', :contoller => 'books', :action => 'lend', :on => :collection
-    get 'lend/:isbn/:user_id', :contoller => 'books', :action => 'lendupdate', :on => :collection
-    get 'return/:isbn', :contoller => 'books', :action => 'return', :on => :collection
+    get 'lend/:isbn', :controller => 'books', :action => 'lend', :on => :collection
+    get 'lend/:isbn/:user_id', :controller => 'books', :action => 'lendupdate', :on => :collection
+    get 'return/:isbn', :controller => 'books', :action => 'return', :on => :collection
   end
 
   resources :users do
