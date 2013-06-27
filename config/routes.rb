@@ -2,7 +2,7 @@ Habook::Application.routes.draw do
 
   resources :books do
     get 'lend/:isbn', :controller => 'books', :action => 'lend', :on => :collection
-    get 'lend/:isbn/:user_id', :controller => 'books', :action => 'lendupdate', :on => :collection
+    get 'lend/:isbn/:screen_name', :controller => 'books', :action => 'lendupdate', :on => :collection
     get 'return/:isbn', :controller => 'books', :action => 'return', :on => :collection
   end
 

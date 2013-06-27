@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @book = Book.find_by_isbn(params[:id])
   end
 
   def new
@@ -26,8 +26,7 @@ class BooksController < ApplicationController
   end
 
   def lend
-    isbn = params[:isbn]
-    @book = Book.where("isbn = ?", isbn).first
+    @book = Book.find_by_isbn(params[:isbn])
     if @book.nil?
       amazon(isbn)
     end
@@ -35,8 +34,9 @@ class BooksController < ApplicationController
   end
 
   def lendupdate
-    @book = Book.where('isbn = ?', params[:isbn]).first
-    if @book.update_attributes(:user_id => params[:user_id], :status => '1')
+    @book = Book.find_by_isbn(params[:isbn])
+    user = User.find_by_screen_name(params[:screen_name])
+    if @book.update_attributes(:user_id => user.id, :status => '1')
       redirect_to books_path, notice: 'updated!'
     else
       render action: 'index'
@@ -44,8 +44,8 @@ class BooksController < ApplicationController
   end
 
   def return
-    @book = Book.where('isbn = ?', params[:isbn]).first
-    if @book.update_attributes(:user_id => '0', :status => '0')
+    @book = Book.find_by_isbn(params[:isbn])
+    if @book.update_attributes(:user_id => 0, :status => 0)
       redirect_to books_path, notice: 'updated!'
     else
       render action: 'index'

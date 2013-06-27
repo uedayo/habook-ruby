@@ -3,7 +3,7 @@ module BooksHelper
     url_for(:controller => 'books', :action => 'lend',:isbn => isbn)
   end
 
-  def bookupdate_path(isbn, user_id)
-    url_for(:controller => 'books', :action => 'lendupdate',:isbn => isbn, :user_id => user_id)
+  def bookupdate_path(isbn, screen_name)
+    url_for(:controller => 'books', :action => 'lendupdate',:isbn => isbn, :screen_name => screen_name)
   end
 end

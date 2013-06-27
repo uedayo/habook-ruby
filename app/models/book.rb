@@ -35,4 +35,8 @@ class Book < ActiveRecord::Base
     end
   end
 
+  def to_param
+    isbn.parameterize
+  end
+
 end

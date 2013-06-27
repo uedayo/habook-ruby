@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :profile_image_url, :presence => true,
                                 :length => { :minimum => 10}
   validates :screen_name, :presence => true,
+                          :uniqueness => true,
                           :length => { :minimum => 3}
 
   def to_param
