@@ -26,7 +26,8 @@ class BooksController < ApplicationController
   end
 
   def lend
-    @book = Book.find_by_isbn(params[:isbn])
+    isbn = params[:isbn]
+    @book = Book.find_by_isbn(isbn)
     if @book.nil?
       amazon(isbn)
     end
