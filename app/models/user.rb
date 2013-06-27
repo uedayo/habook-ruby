@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
                                 :length => { :minimum => 10}
   validates :screen_name, :presence => true,
                           :length => { :minimum => 3}
+
+  def to_param
+    screen_name.parameterize
+  end
 end
