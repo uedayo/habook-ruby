@@ -4,7 +4,7 @@ require 'open-uri'
 class UsersController < ApplicationController
 
   def index
-    @users = User.all(:order => "updated_at DESC")
+    @users = User.all(:order => "read_count DESC")
   end
 
   def show

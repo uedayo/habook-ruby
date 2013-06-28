@@ -1,4 +1,4 @@
-<h2>ユーザ新規作成</h2>
+<h2><%= $user_new %></h2>
 
 <div class="search">
     <form action="users/search" method="post">
@@ -10,7 +10,7 @@
     </form>
 </div>
 
-<h2>ユーザ一覧</h2>
+<h2><%= $user_all %></h2>
 
 <% if @users.empty? %>
 <div class="center">あなたが最初に登録しましょう！</div>
@@ -20,6 +20,7 @@
         <tr>
             <td><%= $user_name %></td>
             <td><%= $user_screen_name %></td>
+            <td><%= $user_read_count %></td>
             <td><%= $operation %></td>
         </tr>
     </thead>
@@ -28,6 +29,7 @@
         <tr id="user_<%= user.id %>">
             <td><%= link_to image_tag(user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), user_path(user) %><br /><%= link_to user.name, user_path(user), :class => "name" %></td>
             <td><%= link_to user.screen_name, user_path(user) %></td>
+            <td><%= user.read_count %></td>
             <td><%= link_to $button_edit, edit_user_path(user), :class => "btn btn-warning btn-large" %> <%= link_to $button_delete, user, :confirm => '本当に削除しますか？', :method => :delete, :class => "btn btn-danger btn-large" %></td>
         </tr>
         <% end %>

@@ -8,6 +8,7 @@
         <tr>
             <td><%= $user_name %></td>
             <td><%= $user_screen_name %></td>
+            <td><%= $user_read_count %></td>
             <td></td>
         </tr>
     </thead>
@@ -16,6 +17,7 @@
         <tr id="user_<%= user.id %>">
             <td><%= link_to image_tag(user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), user_path(user) %><br /><%= link_to user.name, user_path(user), :class => "name" %></td>
             <td><%= link_to user.screen_name, user_path(user) %></td>
+            <td><%= user.read_count %></td>
             <td><%= link_to $action_lend, bookupdate_path(@book.isbn, user.screen_name), :class => "btn btn-success btn-large" %></td>
         </tr>
         <% end %>

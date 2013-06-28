@@ -5,7 +5,7 @@ include Amazon::AWS
 class BooksController < ApplicationController
 
   def index
-    @books = Book.all(:order => "updated_at DESC")
+    @books = Book.all(:order => "read_count DESC")
   end
 
   def show
@@ -46,7 +46,7 @@ class BooksController < ApplicationController
 
   def return
     @book = Book.find_by_isbn(params[:isbn])
-    if @book.update_attributes(:user_id => 0, :status => 0)
+    if @book.update_attribute(:read_count, @book.read_count + 1) && @book.user.update_attribute(:read_count, @book.user.read_count + 1) && @book.update_attributes(:user_id => 0, :status => 0)
       redirect_to books_path, notice: 'updated!'
     else
       render action: 'index'
@@ -58,7 +58,7 @@ class BooksController < ApplicationController
       search_word = URI.decode(params[:q].to_s)
       @books = Book.where(["title LIKE ?", "%#{search_word}%"]) if params[:q].present?
     else
-      @books = Book.all(:order => "updated_at DESC")
+      @books = Book.all(:order => "read_count DESC")
     end
     render action: 'index'
   end

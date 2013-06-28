@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130627092859) do
+ActiveRecord::Schema.define(:version => 20130624090314) do
 
   create_table "books", :force => true do |t|
     t.string   "isbn"
@@ -31,11 +31,12 @@ ActiveRecord::Schema.define(:version => 20130627092859) do
   add_index "books", ["isbn", "volume"], :name => "index_books_on_isbn_and_volume", :unique => true
 
   create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "screen_name"
-    t.string   "profile_image_url"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.string   "name",                             :null => false
+    t.string   "screen_name",                      :null => false
+    t.string   "profile_image_url",                :null => false
+    t.integer  "read_count",        :default => 0, :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "users", ["screen_name"], :name => "index_users_on_screen_name", :unique => true

@@ -21,7 +21,11 @@
                     </tr>
                     <tr>
                         <td><%= $book_amazon_label %></td>
-                        <td><%= link_to $book_amazon, @book.detail_page_url%></td>
+                        <td><%= link_to $book_amazon, @book.detail_page_url %></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_read_count %></td>
+                        <td><%= @book.read_count %></td>
                     </tr>
                     <tr>
                         <td><%= $book_status %></td>
@@ -47,6 +51,10 @@
                     <tr>
                         <td><%= $book_amazon_label %></td>
                         <td><%= link_to $book_amazon, @book.detail_page_url%></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_read_count %></td>
+                        <td><%= @book.read_count %></td>
                     </tr>
                     <tr>
                         <td><%= $book_status %></td>
