@@ -6,13 +6,13 @@
     <form action="/books/register" method="post">
         <fieldset>
             <p>本が１冊も見つかりません。</p>
-            <p>本の登録がまだ済んでいない場合は、以下のフォームにISBNを入力して登録してください。</p>
+            <p>本の登録がまだ済んでいない場合は、下のフォームにISBNを入力して登録を行なってください。</p>
             <p>Amazon APIを用いて、情報の取得を行います。</p>
             <input type="text" name="isbn" placeholder="例: 4822234630" class="input-large search-query" pattern="[0-9]{10,15}" autofocus required>
             <input type="submit" value="<%= $button_submit %>" class="btn btn-primary btn-large">
         </fieldset>
     </form>
-    <p>Androidアプリを使えば、バーコード読み取りによって登録することもできます。ソース: <a href="https://github.com/uedayo/habook-android">GitHub</a></p>
+    <p>Androidアプリを使えば、バーコード読み取りによって登録することもできます。( <a href="https://github.com/uedayo/habook-android">GitHub</a> )</p>
 </div>
 
 <% else %>
@@ -29,7 +29,7 @@
 
 <h2><%= $book_all %></h2>
 
-<p class="inside">たくさん借りられて読まれている本が上に表示されます。</p>
+<p class="inside">たくさん借りられている本が上に表示されます。</p>
 
 <table class="table table-hover">
     <thead>

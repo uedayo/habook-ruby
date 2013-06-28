@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130624090314) do
     t.string   "screen_name",                      :null => false
     t.string   "profile_image_url",                :null => false
     t.integer  "read_count",        :default => 0, :null => false
+    t.integer  "reading_count",     :default => 0, :null => false
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
   end

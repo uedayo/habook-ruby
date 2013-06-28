@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :screen_name, :null => false
       t.string :profile_image_url, :null => false
       t.integer :read_count, :null => false, :default => 0
+      t.integer :reading_count, :null => false, :default => 0
 
       t.timestamps
     end
