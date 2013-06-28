@@ -1,10 +1,10 @@
 <h2><%= link_to @book.title, book_path(@book) %></h2>
 <div class="row-fluid">
-    <div class="span3 thumb">
+    <div class="span3 row-thumb">
         <%= link_to image_tag(@book.medium_image, :width => $book_image_large_width, :class => "img-polaroid"), book_path(@book) %>
     </div>
     <div class="span9">
-        <table class="table">
+        <table class="table row-table">
             <tbody>
                 <% if @book.lend_status == 0 %>
                     <tr>

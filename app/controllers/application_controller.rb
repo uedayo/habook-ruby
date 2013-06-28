@@ -8,7 +8,7 @@ $twitter_image_width = 64
 $book_image_width = 75
 $book_image_large_width = 150
 
-$app_title = "ホンドコ？"
+$app_title = "ほんどこ？"
 
 $book_title = "タイトル"
 $book_author = "著者"
@@ -26,7 +26,7 @@ $book_read_count = "読まれた回数"
 
 $user_screen_name = "Twitter ID"
 $user_name = "名前"
-$user_read_count = "読んだ冊数"
+$user_read_count = "読み終えた冊数"
 $user_all = "ユーザの一覧"
 $user_add = "ユーザの登録はこちらから"
 $user_label = "ユーザ"
@@ -45,3 +45,5 @@ $notice_add_success = "登録に成功しました。"
 $notice_update_success = "更新に成功しました。"
 $notice_delete_success = "削除に成功しました。"
 $notice_already_exests = "すでに登録されています。"
+
+$footer_message = $app_title + "への要望は @uedayo まで"

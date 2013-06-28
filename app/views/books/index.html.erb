@@ -1,7 +1,8 @@
 <% if @books.empty? %>
+
 <h2><%= $book_all %></h2>
 
-<div class="search">
+<div class="inside">
     <form action="/books/register" method="post">
         <fieldset>
             <p>本が１冊も見つかりません。</p>
@@ -15,16 +16,20 @@
 </div>
 
 <% else %>
+
 <h2><%= $book_search %></h2>
 
-<div id="search_form_box" class="search">
+<div id="search_form_box" class="inside">
     <form class="form-search" action="/books/search" method="get" role="search">
         <p>登録済みの本の検索を行います。</p>
         <input class="input-xxlarge search-query" name="q" placeholder="タイトルの一部を入力してください。" type="text" value="<%= params[:q] %>">
         <input class="btn btn-primary btn-large" alt="検索" value="検索" type="submit">
     </form>
 </div>
+
 <h2><%= $book_all %></h2>
+
+<p class="inside">たくさん借りられて読まれている本が上に表示されます。</p>
 
 <table class="table table-hover">
     <thead>
