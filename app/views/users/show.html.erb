@@ -12,11 +12,11 @@
         </tr>
         <tr>
             <td><%= $label_created_at %></td>
-            <td><%= @user.created_at %></td>
+            <td><%= @user.created_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[@user.created_at.wday]})") %></td>
         </tr>
         <tr>
             <td><%= $label_updated_at %></td>
-            <td><%= @user.updated_at %></td>
+            <td><%= @user.updated_at.strftime("%Y/%m/%d(#{%w(日 月 火 水 木 金 土)[@user.created_at.wday]})") %></td>
         </tr>
     </tbody>
 </table>
