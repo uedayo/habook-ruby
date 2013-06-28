@@ -12,6 +12,13 @@
     <%= yield(:head) %>
   </head>
   <body>
+    <header class="navbar navbar-fixed-op">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+        </div>
+      </nav>
+    </header>
     <div id="main" role="main">
       <div class="container">
         <div class="content">
@@ -22,8 +29,6 @@
             </div>
           </div>
           <footer>
-            <%= link_to $book_all, books_path %>
-            <%= link_to $user_all, users_path %>
           </footer>
         </div>
       </div> <!--! end of .container -->
