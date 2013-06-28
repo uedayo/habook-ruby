@@ -41,6 +41,9 @@ $button_submit = "送信"
 $button_edit = "編集"
 $button_delete = "削除"
 
+$label_created_at = "作成日"
+$label_updated_at = "更新日"
+
 $notice_add_success = "登録に成功しました。"
 $notice_update_success = "更新に成功しました。"
 $notice_delete_success = "削除に成功しました。"

@@ -62,7 +62,7 @@
                     </tr>
                     <tr>
                         <td><%= $user_label %></td>
-                        <td><%= link_to image_tag(@book.user.profile_image_url, :width => $twitter_image_width), user_path(@book.user) %><br /><%= link_to @book.user.name, user_path(@book.user), :class => "name" %></td>
+                        <td><%= link_to image_tag(@book.user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), user_path(@book.user) %><br /><%= link_to @book.user.name, user_path(@book.user), :class => "name" %></td>
                     </tr>
                 <% end %>
             </tbody>

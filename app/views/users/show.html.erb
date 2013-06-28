@@ -1,5 +1,22 @@
 <h2><%= @user.name %></h2>
 
-<%= link_to image_tag(@user.profile_image_url), @user.profile_image_url%>
-<p><%= @user.name %></p>
-<p><%= @user.screen_name %></p>
+<table class="table row-table">
+    <tbody>
+        <tr>
+            <td><%= $user_screen_name %></td>
+            <td><%= link_to image_tag(@user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), twitter_path(@user.screen_name) %> <%= link_to @user.name, twitter_path(@user.screen_name) %></td>
+        </tr>
+        <tr>
+            <td><%= $user_read_count %></td>
+            <td><%= @user.read_count %></td>
+        </tr>
+        <tr>
+            <td><%= $label_created_at %></td>
+            <td><%= @user.created_at %></td>
+        </tr>
+        <tr>
+            <td><%= $label_updated_at %></td>
+            <td><%= @user.updated_at %></td>
+        </tr>
+    </tbody>
+</table>
