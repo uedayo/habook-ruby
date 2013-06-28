@@ -46,6 +46,8 @@ $label_created_at = "作成日"
 $label_sign_in_at = "開始日"
 $label_updated_at = "更新日"
 
+$confirm_delete = '削除したデータは元に戻せません。本当に削除しますか？'
+
 $notice_add_success = "登録に成功しました。"
 $notice_update_success = "更新に成功しました。"
 $notice_delete_success = "削除に成功しました。"
