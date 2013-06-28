@@ -5,8 +5,8 @@
 
 <div id="search_form_box">
   <form class="form-search" action="/books/search" method="post" role="search">
-    <input class="input-medium search-query" name="q" placeholder="タイトルの一部を入力してください" type="text" value="<%= params[:q] %>">
-    <input class="btn" alt="検索" value="検索" type="submit">
+    <input class="input-xxlarge search-query" name="q" placeholder="タイトルの一部を入力してください。" type="text" value="<%= params[:q] %>">
+    <input class="btn btn-primary btn-large" alt="検索" value="検索" type="submit">
   </form>
 </div>
 <h2>本の一覧</h2>
@@ -35,7 +35,7 @@
                     <td class="title"><%= link_to book.title, book_path(book) %></td>
                     <td><%= link_to "amazon", book.detail_page_url%></td>
                     <td><%= link_to image_tag(book.user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), user_path(book.user) %><br />
-                        <%= link_to book.user.name, user_path(book.user) %></td>
+                        <%= link_to book.user.name, user_path(book.user), :class => "screen_name" %></td>
                 </tr>
             <% end %>
         <% end %>

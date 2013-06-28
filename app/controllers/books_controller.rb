@@ -54,9 +54,12 @@ class BooksController < ApplicationController
   end
 
   def search
-    search_word = URI.decode(params[:q].to_s)
-#    @books = Book.where(title: search_word)
-    @books = Book.where(["title LIKE ?", "%#{search_word}%"]) if params[:q].present?
+    if !params[:q].blank?
+      search_word = URI.decode(params[:q].to_s)
+      @books = Book.where(["title LIKE ?", "%#{search_word}%"]) if params[:q].present?
+    else
+      @books = Book.all(:order => "updated_at DESC")
+    end
     render action: 'index'
   end
 

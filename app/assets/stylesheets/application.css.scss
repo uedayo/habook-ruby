@@ -1,7 +1,9 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-body { font-size: 16px; }
+body {
+    font-size: 16px;
+}
 
 .center {
     text-align:center;
@@ -18,11 +20,20 @@ body { font-size: 16px; }
         vertical-align: middle;
         width: 30%
     }
+
+    .screen_name {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 767px) {
-  body {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+    body {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+form input.search-query {
+    font-size: 18px;
+    height: 30px;
 }
