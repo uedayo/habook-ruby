@@ -1,3 +1,5 @@
+# coding: utf-8
+
 require 'amazon/aws'
 require 'amazon/aws/search'
 include Amazon::AWS
@@ -19,9 +21,20 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(params[:post])
     if @book.save
-      redirect_to books_path
+      redirect_to books_path, notice: $notice_add_success
     else
       render action: 'new'
+    end
+  end
+
+  def register
+    isbn = params[:isbn]
+    @book = Book.find_by_isbn(isbn)
+    if @book.nil?
+      amazon(isbn)
+      redirect_to books_path, notice: $notice_add_success
+    else
+      redirect_to books_path, notice: $notice_already_exests
     end
   end
 
@@ -38,7 +51,7 @@ class BooksController < ApplicationController
     @book = Book.find_by_isbn(params[:isbn])
     user = User.find_by_screen_name(params[:screen_name])
     if @book.update_attributes(:user_id => user.id, :status => '1')
-      redirect_to books_path, notice: 'updated!'
+      redirect_to books_path, notice: $notice_update_success
     else
       render action: 'index'
     end
@@ -47,7 +60,7 @@ class BooksController < ApplicationController
   def return
     @book = Book.find_by_isbn(params[:isbn])
     if @book.update_attribute(:read_count, @book.read_count + 1) && @book.user.update_attribute(:read_count, @book.user.read_count + 1) && @book.update_attributes(:user_id => 0, :status => 0)
-      redirect_to books_path, notice: 'updated!'
+      redirect_to books_path, notice: $notice_update_success
     else
       render action: 'index'
     end
@@ -79,9 +92,6 @@ class BooksController < ApplicationController
     @book.detail_page_url = item.detail_page_url.to_s
     @book.small_image = item.small_image.url.to_s
     @book.medium_image = item.medium_image.url.to_s
-    @book.volume = 1
-    @book.status = 0
-    @book.user_id = 0
     @book.save
   end
 

@@ -2,7 +2,7 @@ class CreateBooks < ActiveRecord::Migration
   def change
     create_table :books do |t|
       t.string :isbn, :null => false
-      t.integer :volume, :null => false, :default => 0
+      t.integer :volume, :null => false, :default => 1
       t.string :title, :null => false
       t.string :author, :null => false
       t.string :manufacturer, :null => false, :default => "unknown"

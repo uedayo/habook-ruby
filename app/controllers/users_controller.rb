@@ -1,3 +1,5 @@
+# coding: utf-8
+
 require 'json'
 require 'open-uri'
 
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to users_path
+      redirect_to users_path, notice: $notice_add_success
     else
       render action: 'new'
     end
@@ -42,7 +44,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_screen_name(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to users_path, notice: 'updated!'
+      redirect_to users_path, notice: $notice_update_success
     else
       render action: 'edit'
     end
@@ -51,7 +53,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find_by_screen_name(params[:id])
     @user.destroy
-    redirect_to users_path
+    redirect_to users_path, notice: $notice_delete_success
   end
 
   private

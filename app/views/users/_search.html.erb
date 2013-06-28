@@ -1,0 +1,10 @@
+<div class="search">
+    <form action="users/search" method="post">
+        <fieldset>
+            <p>あなたの名前、プロフィール画像URLを取得します。</p>
+            <p>TwitterアカウントIDを入力してください。</p>
+            <input type="text" name="screen_name" placeholder="例: sugimori" class="input-large search-query" pattern="[a-zA-Z0-9_]{3,30}" required>
+            <input type="submit" value="<%= $button_submit %>" class="btn btn-primary btn-large">
+        </fieldset>
+    </form>
+</div>

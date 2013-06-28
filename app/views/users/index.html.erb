@@ -1,14 +1,6 @@
 <h2><%= $user_new %></h2>
 
-<div class="search">
-    <form action="users/search" method="post">
-        <fieldset>
-            <p>あなたの名前、プロフィール画像URLを取得します。<br />TwitterアカウントIDを入力してください。</p>
-            <input type="text" name="screen_name" placeholder="例: sugimori" class="input-large search-query">
-            <input type="submit" value="<%= $button_submit %>" class="btn btn-primary btn-large">
-        </fieldset>
-    </form>
-</div>
+<%= render 'search' %>
 
 <h2><%= $user_all %></h2>
 

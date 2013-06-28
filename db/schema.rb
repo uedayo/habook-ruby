@@ -14,18 +14,19 @@
 ActiveRecord::Schema.define(:version => 20130624090314) do
 
   create_table "books", :force => true do |t|
-    t.string   "isbn"
-    t.integer  "volume"
-    t.string   "title"
-    t.string   "author"
-    t.string   "manufacturer"
-    t.string   "small_image"
-    t.string   "medium_image"
-    t.string   "detail_page_url"
-    t.integer  "status"
-    t.integer  "user_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "isbn",                                   :null => false
+    t.integer  "volume",          :default => 1,         :null => false
+    t.string   "title",                                  :null => false
+    t.string   "author",                                 :null => false
+    t.string   "manufacturer",    :default => "unknown", :null => false
+    t.string   "small_image",     :default => "unknown", :null => false
+    t.string   "medium_image",    :default => "unknown", :null => false
+    t.string   "detail_page_url", :default => "unknown", :null => false
+    t.integer  "read_count",      :default => 0,         :null => false
+    t.integer  "status",          :default => 0,         :null => false
+    t.integer  "user_id",         :default => 0,         :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
 
   add_index "books", ["isbn", "volume"], :name => "index_books_on_isbn_and_volume", :unique => true
