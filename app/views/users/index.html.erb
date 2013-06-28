@@ -1,38 +1,34 @@
-<h2>アカウント新規作成</h2>
+<h2>ユーザ新規作成</h2>
 
-<div>
+<div class="search">
     <form action="users/search" method="post">
         <fieldset>
-            <p>あなたの名前、プロフィール画像URLを取得します。<br />Twitterアカウント IDを入力してください。</p>
-            <input type="text" name="screen_name" placeholder="例: sugimori" class="input-medium search-query">
-            <input type="submit" value="<%= $button_submit %>" class="btn">
+            <p>あなたの名前、プロフィール画像URLを取得します。<br />TwitterアカウントIDを入力してください。</p>
+            <input type="text" name="screen_name" placeholder="例: sugimori" class="input-large search-query">
+            <input type="submit" value="<%= $button_submit %>" class="btn btn-primary btn-large">
         </fieldset>
     </form>
 </div>
 
-<h2>アカウント一覧</h2>
+<h2>ユーザ一覧</h2>
 
 <% if @users.empty? %>
-<div class="center">フォームから他の誰よりも先に登録しましょう！</div>
+<div class="center">あなたが最初に登録しましょう！</div>
 <% else %>
 <table class="table table-striped table-hover">
     <thead>
         <tr>
-            <td></td>
-            <td><%= $user_screen_name %></td>
             <td><%= $user_name %></td>
-            <td></td>
-            <td></td>
+            <td><%= $user_screen_name %></td>
+            <td><%= $operation %></td>
         </tr>
     </thead>
     <tbody>
         <% @users.each do |user| %>
         <tr id="user_<%= user.id %>">
-            <td><%= link_to image_tag(user.profile_image_url, :width => $twitter_image_width), "https://twitter.com/" + user.screen_name %></td>
+            <td><%= link_to image_tag(user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), user_path(user) %><br /><%= link_to user.name, user_path(user), :class => "name" %></td>
             <td><%= link_to user.screen_name, user_path(user) %></td>
-            <td><%= link_to user.name, user_path(user) %></td>
-            <td><%= link_to $button_edit, edit_user_path(user), :class => "btn btn-warning btn-large" %></td>
-            <td><%= link_to $button_delete, user, :confirm => '本当に削除しますか？', :method => :delete, :class => "btn btn-danger btn-large" %></td>
+            <td><%= link_to $button_edit, edit_user_path(user), :class => "btn btn-warning btn-large" %> <%= link_to $button_delete, user, :confirm => '本当に削除しますか？', :method => :delete, :class => "btn btn-danger btn-large" %></td>
         </tr>
         <% end %>
     </tbody>

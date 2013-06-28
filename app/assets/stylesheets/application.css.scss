@@ -1,14 +1,37 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-body {
-    font-size: 16px;
+@media (max-width: 767px) {
+    body {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }
 
-.center {
+body {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 20px;
+    border-left:7px solid #ccc;
+    border-bottom:1px dashed #ccc;
+    padding:.2em .4em;
+    margin: 5px;
+}
+
+.center-horizontal {
     text-align:center;
     margin: 0 auto;
 }
+
+.thumb {
+    text-align:center;
+    vertical-align:middle;
+    margin: 10px auto;
+}
+
 
 .table {
     td {
@@ -21,19 +44,25 @@ body {
         width: 30%
     }
 
-    .screen_name {
+    .name {
         font-size: 12px;
+    }
+
+    .btn {
+            margin: 5px 10px;
     }
 }
 
-@media (max-width: 767px) {
-    body {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
+.search {
+    margin: 5px 15px;
 }
 
 form input.search-query {
-    font-size: 18px;
-    height: 30px;
+    font-size: 20px;
+    height: 35px;
+    margin: 10px;
+}
+
+input[type="submit"] {
+    margin: 10px;
 }

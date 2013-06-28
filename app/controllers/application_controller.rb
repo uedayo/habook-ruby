@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 end
 
 $twitter_image_width = 64
-$book_image_width = 100
-$book_image_large_width = 200
+$book_image_width = 75
+$book_image_large_width = 150
 
 $app_title = "ホンドコ？"
 
@@ -14,6 +14,8 @@ $book_title = "タイトル"
 $book_author = "著者"
 $book_manufacturer = "出版社"
 $book_isbn = "ISBN"
+$book_amazon_label = "amazon"
+$book_amazon = "amazonで見る"
 $book_status = "状態"
 $book_able = "貸出可"
 $book_unable = "貸出中"
@@ -23,9 +25,11 @@ $user_screen_name = "Twitter ID"
 $user_name = "名前"
 $user_all = "ユーザ一覧"
 $user_add = "ユーザ登録はこちらから"
+$user_label = "ユーザ"
 
 $action_lend = "借りる"
 $action_return = "返す"
+$operation = "操作"
 
 $button_submit = "送信"
 $button_edit = "編集"

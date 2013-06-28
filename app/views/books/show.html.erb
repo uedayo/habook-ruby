@@ -1,3 +1,11 @@
-<h1><%= @book.title %></h1>
-
 <%= render 'detail' %>
+
+<% if @book.lend_status == 0 %>
+    <div class="center-horizontal">
+    <%= link_to $action_lend, booklend_path(@book.isbn), :class => "btn btn-success btn-large" %>
+    </div>
+<% else %>
+    <div class="center-horizontal">
+    <%= link_to $action_return, bookreturn_path(@book.isbn), :class => "btn btn-success btn-large" %>
+    </div>
+<% end %>

@@ -1,39 +1,63 @@
-<table class="table">
-    <thead>
-        <tr>
-            <td class="center"></td>
-            <td class="center"><%= $book_title %></td>
-            <td class="center"><%= $book_author %></td>
-            <td class="center"><%= $book_manufacturer %></td class="center">
-            <td class="center"><%= $book_isbn %></td>
-            <td></td>
-            <td class="center"><%= $book_status %></td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
-        <% if @book.lend_status == 0 %>
-            <tr id="book_<%= @book.id %>">
-                <td class="center"><%= link_to image_tag(@book.medium_image, :width => $book_image_large_width), book_path(@book) %></td>
-                <td class="title"><%= link_to @book.title, book_path(@book) %></td>
-                <td class="center"><%= @book.author %></td>
-                <td class="center"><%= @book.manufacturer %></td>
-                <td class="center"><%= @book.isbn %></td>
-                <td class="center"><%= link_to "amazon", @book.detail_page_url%></td>
-                <td class="center"><a class="btn btn-success btn-primary disabled"><%= $book_able %></a></td>
-                <td class="center"></td>
-            </tr>
-        <% else %>
-            <tr id="book_<%= @book.id %>">
-                <td class="center"><%= link_to image_tag(@book.medium_image, :width => $book_image_large_width), book_path(@book) %></td>
-                <td class="title"><%= link_to @book.title, book_path(@book) %></td>
-                <td class="center"><%= @book.author %></td>
-                <td class="center"><%= @book.manufacturer %></td>
-                <td class="center"><%= @book.isbn %></td>
-                <td class="center"><%= link_to "amazon", @book.detail_page_url%></td>
-                <td class="center"><a class="btn btn-danger btn-primary disabled"><%= $book_unable %></a></td>
-                <td class="center"><%= link_to image_tag(@book.user.profile_image_url, :width => $twitter_image_width), user_path(@book.user) %><br /><%= @book.user.name %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+<h2><%= link_to @book.title, book_path(@book) %></h2>
+<div class="row-fluid">
+    <div class="span3 thumb">
+        <%= link_to image_tag(@book.medium_image, :width => $book_image_large_width, :class => "img-polaroid"), book_path(@book) %>
+    </div>
+    <div class="span9">
+        <table class="table">
+            <tbody>
+                <% if @book.lend_status == 0 %>
+                    <tr>
+                        <td><%= $book_author %></td>
+                        <td><%= @book.author %></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_manufacturer %></td >
+                        <td><%= @book.manufacturer %></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_isbn %></td>
+                        <td><%= @book.isbn %></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_amazon_label %></td>
+                        <td><%= link_to $book_amazon, @book.detail_page_url%></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_status %></td>
+                        <td><a class="btn btn-success btn-primary disabled"><%= $book_able %></a></td>
+                    </tr>
+                <% else %>
+                    <tr>
+                        <td><%= $book_title %></td>
+                        <td><%= link_to @book.title, book_path(@book) %></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_author %></td>
+                        <td><%= @book.author %></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_manufacturer %></td >
+                        <td><%= @book.manufacturer %></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_isbn %></td>
+                        <td><%= @book.isbn %></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_amazon_label %></td>
+                        <td><%= link_to $book_amazon, @book.detail_page_url%></td>
+                    </tr>
+                    <tr>
+                        <td><%= $book_status %></td>
+                        <td><a class="btn btn-danger btn-primary disabled"><%= $book_unable %></a></td>
+                    </tr>
+                    <tr>
+                        <td><%= $user_label %></td>
+                        <td><%= link_to image_tag(@book.user.profile_image_url, :width => $twitter_image_width), user_path(@book.user) %><br /><%= link_to @book.user.name, user_path(@book.user), :class => "name" %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

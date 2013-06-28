@@ -11,7 +11,7 @@
   <div class="control-group">
     <%= f.label :screen_name, :class => 'control-label', :for => 'screen_name' %>
     <div class="controls">
-    <%= f.text_area :screen_name, :rows => 1, :id => 'screen_name' %>
+    <%= f.text_area :screen_name, :rows => 1, :id => 'screen_name', :class =>'uneditable-input' %>
     </div>
   </div>
   <div class="control-group">
@@ -28,7 +28,7 @@
   </div>
   <div class="control-group">
     <div class="controls">
-    <%= f.submit '登録', :class => 'btn btn-large' %>
+    <%= f.submit '登録', :class => 'btn btn-primary btn-large' %>
     </div>
   </div>
 <% end %>
