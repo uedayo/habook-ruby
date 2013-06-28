@@ -6,4 +6,8 @@ module BooksHelper
   def bookupdate_path(isbn, screen_name)
     url_for(:controller => 'books', :action => 'lendupdate',:isbn => isbn, :screen_name => screen_name)
   end
+
+  def booksearch_path
+    url_for(:controller => 'books', :action => 'search')
+  end
 end

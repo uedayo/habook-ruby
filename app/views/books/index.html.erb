@@ -1,13 +1,22 @@
 <% if @books.empty? %>
 <div class="center">まずは本の登録をしましょう！</div>
 <% else %>
+<h2>本の検索</h2>
+
+<div id="search_form_box">
+  <form class="form-search" action="/books/search" method="post" role="search">
+    <input class="input-medium search-query" name="q" placeholder="タイトルの一部を入力してください" type="text" value="<%= params[:q] %>">
+    <input class="btn" alt="検索" value="検索" type="submit">
+  </form>
+</div>
+<h2>本の一覧</h2>
+
 <table class="table table-hover">
     <thead>
         <tr>
             <td></td>
             <td><%= $book_title %></td>
             <td></td>
-            <td><%= $book_status %></td>
             <td></td>
         </tr>
     </thead>
@@ -15,19 +24,18 @@
         <% @books.each do |book| %>
             <% if book.lend_status == 0 %>
                 <tr id="book_<%= book.id %>">
-                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width), book_path(book) %></td>
+                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width, :class => "img-polaroid"), book_path(book) %></td>
                     <td class="title"><%= link_to book.title, book_path(book) %></td>
                     <td><%= link_to "amazon", book.detail_page_url%></td>
-                    <td><a class="btn btn-success btn-primary btn-large disabled"><%= $book_able %></a></td>
                     <td><%= link_to $action_lend, booklend_path(book.isbn), :class => "btn btn-success btn-large" %></td>
                 </tr>
             <% else %>
                 <tr id="book_<%= book.id %>" class="error">
-                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width), book_path(book) %></td>
+                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width, :class => "img-polaroid"), book_path(book) %></td>
                     <td class="title"><%= link_to book.title, book_path(book) %></td>
                     <td><%= link_to "amazon", book.detail_page_url%></td>
-                    <td><a class="btn btn-danger btn-large disabled"><%= $book_unable %></a></td>
-                    <td><%= link_to image_tag(book.user.profile_image_url, :width => $twitter_image_width), user_path(book.user) %><br /><%= book.user.name %></td>
+                    <td><%= link_to image_tag(book.user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), user_path(book.user) %><br />
+                        <%= link_to book.user.name, user_path(book.user) %></td>
                 </tr>
             <% end %>
         <% end %>

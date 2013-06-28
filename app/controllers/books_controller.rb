@@ -53,6 +53,13 @@ class BooksController < ApplicationController
     end
   end
 
+  def search
+    search_word = URI.decode(params[:q].to_s)
+#    @books = Book.where(title: search_word)
+    @books = Book.where(["title LIKE ?", "%#{search_word}%"]) if params[:q].present?
+    render action: 'index'
+  end
+
   private
   def amazon(isbn)
     @book = Book.new
