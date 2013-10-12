@@ -34,6 +34,8 @@ gem 'jquery-rails'
 group :production do
   # Use unicorn as the app server
   gem 'unicorn'
+  # New Relic
+  gem 'newrelic_rpm'
 end
 
 # Deploy with Capistrano
