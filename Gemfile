@@ -31,6 +31,11 @@ gem 'jquery-rails'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
+group :development do
+  # N+1 problem
+  gem "bullet"
+end
+
 group :production do
   # Use unicorn as the app server
   gem 'unicorn'

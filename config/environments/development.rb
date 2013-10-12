@@ -37,4 +37,13 @@ Habook::Application.configure do
 
   # Stop logger message "Served asset - 304 Not Modified (20ms)"
   config.assets.logger = false
+
+  # Bullet setting
+  config.after_initialize do
+    Bullet.enable = true # enable Bullet plugin
+    Bullet.alert = true # JavaScript alert
+    Bullet.bullet_logger = true # log/bullet.log output
+    Bullet.console = true # console.log on browser output
+    Bullet.rails_logger = true # Rails log output
+  end
 end
