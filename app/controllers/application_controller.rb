@@ -26,7 +26,7 @@ $book_new = "本の新規作成"
 $book_read_count = "読まれた回数"
 $book_lend = "貸出処理"
 
-$user_screen_name = "Twitter ID"
+$user_screen_name = "ユーザID"
 $user_name = "名前"
 $user_read_count = "読み終えた冊数"
 $user_reading_count = "借りている冊数"

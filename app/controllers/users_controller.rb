@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def create_name
-    @user = User.new(name: params[:name], profile_image_url: "https://si0.twimg.com/profile_images/1649681615/kihon_a_01_bigger.jpg", screen_name: "", read_count: 0, reading_count: 0)
+    @user = User.new(name: params[:name], profile_image_url: "https://si0.twimg.com/profile_images/1649681615/kihon_a_01_bigger.jpg", screen_name: getRandomUserID, read_count: 0, reading_count: 0)
     if @user.save
       flash.keep[:notice] = $notice_add_success
       redirect_to users_path
@@ -72,4 +72,12 @@ class UsersController < ApplicationController
     JSON.parse(content).first
   end
 
+  def getRandomUserID
+    a = ('a'..'z').to_a + ('0'..'9').to_a
+    code = (
+          Array.new(8) do
+            a[rand(a.size)]
+          end
+          ).join
+  end
 end
