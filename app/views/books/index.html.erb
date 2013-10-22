@@ -39,17 +39,19 @@
             <td><%= $book_amazon_label %></td>
             <td><%= $book_read_count %></td>
             <td><%= $book_status %></td>
+            <td><%= $book_user %></td>
         </tr>
     </thead>
     <tbody>
         <% @books.each do |book| %>
             <% if book.lend_status == 0 %>
                 <tr id="book_<%= book.id %>">
-                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width, :class => "img-polaroid"), book_path(book) %></td>
-                    <td class="title"><%= link_to book.title, book_path(book) %></td>
+                    <td><%= link_to image_tag(book.medium_image, :width => $book_image_width, :class => "img-polaroid"), booklend_path(book.isbn) %></td>
+                    <td class="title"><%= link_to book.title, booklend_path(book.isbn) %></td>
                     <td><%= link_to $book_amazon, book.detail_page_url %></td>
                     <td><%= book.read_count %></td>
-                    <td><%= link_to $action_lend, booklend_path(book.isbn), :class => "btn btn-success btn-large" %></td>
+                    <td><%= link_to $book_available, booklend_path(book.isbn), :class => "btn btn-success btn-large" %></td>
+                    <td></td>
                 </tr>
             <% else %>
                 <tr id="book_<%= book.id %>" class="error">
@@ -57,6 +59,8 @@
                     <td class="title"><%= link_to book.title, book_path(book) %></td>
                     <td><%= link_to $book_amazon, book.detail_page_url%></td>
                     <td><%= book.read_count %></td>
+                    <td><%= link_to $book_unavailable, booklend_path(book.isbn), :class => "btn btn-danger btn-large" %>
+                    </td>
                     <td><%= link_to image_tag(book.user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), user_path(book.user) %><br />
                         <%= link_to book.user.name, user_path(book.user), :class => "name" %></td>
                 </tr>
