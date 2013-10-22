@@ -31,7 +31,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      redirect_to users_path, notice: $notice_add_success
+      flash.keep[:notice] = $notice_add_success
+      redirect_to users_path
     else
       render action: 'new'
     end
@@ -44,7 +45,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find_by_screen_name(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to users_path, notice: $notice_update_success
+      flash.keep[:notice] = $notice_update_success
+      redirect_to users_path
     else
       render action: 'edit'
     end
@@ -53,6 +55,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find_by_screen_name(params[:id])
     @user.destroy
+    flash.keep[:notice] = $notice_delete_success
     redirect_to users_path, notice: $notice_delete_success
   end
 

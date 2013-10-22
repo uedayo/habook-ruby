@@ -52,5 +52,6 @@ $notice_add_success = "登録に成功しました。"
 $notice_update_success = "更新に成功しました。"
 $notice_delete_success = "削除に成功しました。"
 $notice_already_exests = "すでに登録されています。"
+$notice_match = "件該当しました。"
 
 $footer_message = $app_title + "への要望は 上田 まで"
