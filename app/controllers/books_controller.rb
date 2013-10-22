@@ -53,7 +53,9 @@ class BooksController < ApplicationController
   def lendupdate
     @book = Book.find_by_isbn(params[:isbn])
     user = User.find_by_screen_name(params[:screen_name])
-    if user.update_attribute(:reading_count, user.reading_count + 1) && @book.update_attributes(:user_id => user.id, :status => '1')
+    if @book.present? && user.present?
+      @book.update_attributes(:user_id => user.id, :status => '1')
+      user.update_attribute(:reading_count, user.reading_count + 1)
       flash.keep[:notice] = $notice_update_success
       redirect_to books_path
     else
@@ -63,7 +65,10 @@ class BooksController < ApplicationController
 
   def return
     @book = Book.find_by_isbn(params[:isbn])
-    if @book.update_attribute(:read_count, @book.read_count + 1) && @book.user.update_attribute(:reading_count, @book.user.reading_count - 1) && @book.update_attributes(:user_id => 0, :status => 0)
+    if @book.present?
+      @book.user.update_attribute(:read_count, @book.user.read_count + 1)
+      @book.user.update_attribute(:reading_count, @book.user.reading_count - 1)
+      @book.update_attributes(:user_id => 0, :status => 0)
       flash.keep[:notice] = $notice_update_success
       redirect_to books_path
     else

@@ -37,8 +37,8 @@ $user_new_twitter = "Twitterアカウントでユーザの新規作成"
 $user_new_name = "名前のみでユーザの新規作成"
 $user_edit = "ユーザの編集"
 
-$action_lend = "借りる"
-$action_return = "返す"
+$action_lend = "貸出しする"
+$action_return = "返却する"
 $operation = "操作"
 
 $button_submit = "送信"
