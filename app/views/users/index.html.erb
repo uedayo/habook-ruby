@@ -25,7 +25,7 @@
             <td><%= link_to image_tag(user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), user_path(user) %><br /><%= link_to user.name, user_path(user), :class => "name" %></td>
             <td><%= link_to user.screen_name, user_path(user) %></td>
             <td><%= user.read_count %></td>
-            <td><%= link_to $button_edit, edit_user_path(user), :class => "btn btn-warning btn-large" %> <%= link_to $button_delete, user_path(user), :confirm => $confirm_delete, :method => :delete, :class => "btn btn-danger btn-large" %></td>
+            <td><%= link_to $button_edit, edit_user_path(user), :class => "btn btn-warning btn-large" %> <%= link_to $button_delete, user_path(user), :method => :delete, :class => "btn btn-danger btn-large" %></td>
         </tr>
         <% end %>
     </tbody>
