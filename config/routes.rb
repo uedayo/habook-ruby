@@ -10,9 +10,9 @@ Habook::Application.routes.draw do
   end
 
   resources :users do
-    post 'search', :controller => 'users', :action => 'search', :on => :collection
   end
 
+  post 'users/create_twitter' => 'users#create_twitter'
   post 'users/create_name' => 'users#create_name'
 
   # The priority is based upon order of creation:

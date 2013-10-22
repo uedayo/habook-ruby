@@ -13,10 +13,11 @@ class UsersController < ApplicationController
     @user = User.find_by_screen_name(params[:id])
   end
 
-  def twitter
+  def new
+    @user = User.new
   end
 
-  def search
+  def create_twitter
     @user = User.new
     json = getTwitterJSON(params[:screen_name])
     @user.name = json["name"]
@@ -24,12 +25,8 @@ class UsersController < ApplicationController
     @user.profile_image_url = json["profile_image_url"]
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new(params[:user])
+  def create_name
+    @user = User.new(name: params[:name], profile_image_url: "https://si0.twimg.com/profile_images/1649681615/kihon_a_01_bigger.jpg", screen_name: "", read_count: 0, reading_count: 0)
     if @user.save
       flash.keep[:notice] = $notice_add_success
       redirect_to users_path
@@ -38,8 +35,8 @@ class UsersController < ApplicationController
     end
   end
 
-  def create_name
-    @user = User.new(name: params[:name], profile_image_url: "https://si0.twimg.com/profile_images/1649681615/kihon_a_01_bigger.jpg", screen_name: "", read_count: 0, reading_count: 0)
+  def create
+    @user = User.new(params[:user])
     if @user.save
       flash.keep[:notice] = $notice_add_success
       redirect_to users_path
