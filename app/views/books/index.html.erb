@@ -59,7 +59,7 @@
                     <td class="title"><%= link_to book.title, book_path(book) %></td>
                     <td><%= link_to $book_amazon, book.detail_page_url%></td>
                     <td><%= book.read_count %></td>
-                    <td><%= link_to $book_unavailable, booklend_path(book.isbn), :class => "btn btn-danger btn-large" %>
+                    <td><%= link_to $book_unavailable, book_path(book), :class => "btn btn-danger btn-large" %>
                     </td>
                     <td><%= link_to image_tag(book.user.profile_image_url, :width => $twitter_image_width, :class => "img-rounded"), user_path(book.user) %><br />
                         <%= link_to book.user.name, user_path(book.user), :class => "name" %></td>
