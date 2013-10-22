@@ -38,6 +38,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_name
+    @user = User.new(name: params[:name], profile_image_url: "https://si0.twimg.com/profile_images/1649681615/kihon_a_01_bigger.jpg", screen_name: "", read_count: 0, reading_count: 0)
+    if @user.save
+      flash.keep[:notice] = $notice_add_success
+      redirect_to users_path
+    else
+      render action: 'new'
+    end
+  end
+
   def edit
     @user = User.find_by_screen_name(params[:id])
   end

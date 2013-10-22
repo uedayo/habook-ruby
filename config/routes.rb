@@ -13,6 +13,8 @@ Habook::Application.routes.draw do
     post 'search', :controller => 'users', :action => 'search', :on => :collection
   end
 
+  post 'users/create_name' => 'users#create_name'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
