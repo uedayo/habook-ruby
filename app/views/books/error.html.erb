@@ -1,0 +1,15 @@
+<h2><%= $book_error_title %></h2>
+
+<div class="inside">
+    <p>Amazonからのデータ取得に失敗しました。以下の原因が考えられます。</p>
+    <ul>
+        <li>バーコードの読み取りに失敗している。</li>
+        <li>Amazonに書籍情報が登録されていない。</li>
+    </ul>
+</div>
+<div class="inside">
+    <ul>
+        <li><%= link_to $book_all, books_path %></li>
+        <li><%= link_to $user_all, users_path %></li>
+    </ul>
+</div>

@@ -32,9 +32,13 @@ class BooksController < ApplicationController
     isbn = params[:isbn]
     @book = Book.find_by_isbn(isbn)
     if @book.nil?
-      amazon(isbn)
-      flash.keep[:notice] = $notice_add_success
-      redirect_to books_path
+      result = amazon(isbn)
+      if result
+        flash.keep[:notice] = $notice_add_success
+        redirect_to books_path
+      else
+        render action: 'error'
+      end
     else
       flash.keep[:notice] = $notice_already_exests
       redirect_to books_path
@@ -105,20 +109,24 @@ class BooksController < ApplicationController
   def amazon(isbn)
     @book = Book.new
 
-    itemLookup = ItemLookup.new('ISBN', ItemId: isbn, SearchIndex: 'Books')
-    request  = Search::Request.new
-    response = request.search itemLookup
-
-    item = response.item_lookup_response.items.item
-    @book.title = item.item_attributes.title.to_s
-    @book.author = item.item_attributes.author.to_s
-    @book.manufacturer = item.item_attributes.manufacturer.to_s
-    @book.isbn = isbn.to_s
-    @book.volume = 1
-    @book.detail_page_url = item.detail_page_url.to_s
-    @book.small_image = item.small_image.url.to_s
-    @book.medium_image = item.medium_image.url.to_s
-    @book.save
+    begin
+      itemLookup = ItemLookup.new('ISBN', ItemId: isbn, SearchIndex: 'Books')
+      request  = Search::Request.new
+      response = request.search itemLookup
+      item = response.item_lookup_response.items.item
+      @book.title = item.item_attributes.title.to_s
+      @book.author = item.item_attributes.author.to_s
+      @book.manufacturer = item.item_attributes.manufacturer.to_s
+      @book.isbn = isbn.to_s
+      @book.volume = 1
+      @book.detail_page_url = item.detail_page_url.to_s
+      @book.small_image = item.small_image.url.to_s
+      @book.medium_image = item.medium_image.url.to_s
+      @book.save
+      true
+    rescue
+      false
+    end
   end
 
 end
