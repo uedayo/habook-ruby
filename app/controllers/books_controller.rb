@@ -41,6 +41,10 @@ class BooksController < ApplicationController
     end
   end
 
+  def edit
+    @book = Book.find_by_isbn(params[:id])
+  end
+
   def lend
     isbn = params[:isbn]
     @book = Book.find_by_isbn(isbn)
@@ -80,7 +84,7 @@ class BooksController < ApplicationController
     if !params[:q].blank?
       search_word = URI.decode(params[:q].to_s)
       @books = Book.where(["title LIKE ?", "%#{search_word}%"]) if params[:q].present?
-      flash.keep[:notice] = @books.length.to_s + $notice_match
+      flash[:notice] = @books.length.to_s + $notice_match
     else
       @books = Book.all(:order => "read_count DESC")
     end
@@ -100,6 +104,7 @@ class BooksController < ApplicationController
     @book.author = item.item_attributes.author.to_s
     @book.manufacturer = item.item_attributes.manufacturer.to_s
     @book.isbn = isbn.to_s
+    @book.volume = 1
     @book.detail_page_url = item.detail_page_url.to_s
     @book.small_image = item.small_image.url.to_s
     @book.medium_image = item.medium_image.url.to_s

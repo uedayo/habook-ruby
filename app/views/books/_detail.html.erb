@@ -28,9 +28,14 @@
                         <td><%= @book.read_count %></td>
                     </tr>
                     <tr>
+                        <td><%= $operation %></td>
+                        <td><%= link_to $button_edit, edit_book_path(@book), :class => "btn btn-warning btn-primary" %></td>
+                    </tr>
+                    <tr>
                         <td><%= $book_status %></td>
                         <td><a class="btn btn-success btn-primary disabled"><%= $book_available %></a></td>
                     </tr>
+
                 <% else %>
                     <tr>
                         <td><%= $book_title %></td>
@@ -55,6 +60,10 @@
                     <tr>
                         <td><%= $book_read_count %></td>
                         <td><%= @book.read_count %></td>
+                    </tr>
+                    <tr>
+                        <td><%= $operation %></td>
+                        <td><%= link_to $button_edit, edit_book_path(@book), :class => "btn btn-warning btn-large" %></td>
                     </tr>
                     <tr>
                         <td><%= $book_status %></td>
