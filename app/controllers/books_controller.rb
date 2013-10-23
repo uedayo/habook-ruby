@@ -19,7 +19,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(params[:post])
+    @book = Book.new(params[:book])
     if @book.save
       flash.keep[:notice] = $notice_add_success
       redirect_to books_path
@@ -43,6 +43,16 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find_by_isbn(params[:id])
+  end
+
+  def update
+    @book = Book.find_by_isbn(params[:id])
+    if @book.update_attributes(params[:book])
+      flash.keep[:notice] = $notice_update_success
+      redirect_to books_path
+    else
+      render action: 'edit'
+    end
   end
 
   def lend

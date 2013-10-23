@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def create_name
-    @user = User.new(name: params[:name], profile_image_url: "https://si0.twimg.com/profile_images/1649681615/kihon_a_01_bigger.jpg", screen_name: getRandomUserID, read_count: 0, reading_count: 0)
+    @user = User.new(name: params[:name], profile_image_url: $user_default_profile_path, screen_name: getRandomUserID, read_count: 0, reading_count: 0)
     if @user.save
       flash.keep[:notice] = $notice_add_success
       redirect_to users_path

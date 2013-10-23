@@ -38,6 +38,7 @@ $user_label = "ユーザ"
 $user_new_twitter = "Twitterアカウントでユーザの新規作成"
 $user_new_name = "名前のみでユーザの新規作成"
 $user_edit = "ユーザの編集"
+$user_default_profile_path = "https://si0.twimg.com/profile_images/1649681615/kihon_a_01_bigger.jpg"
 
 $action_lend = "貸出する"
 $action_return = "返却する"

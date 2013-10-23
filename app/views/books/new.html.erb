@@ -1,35 +1,3 @@
 <h2><%= $book_new %></h2>
 
-<%= form_for(@book) do |b| %>
-
-<div class="field">
-  <%= b.label :title %>
-  <%= b.text_field :title %>
-</div>
-
-<div class="field">
-  <%= b.label :publisher %>
-  <%= b.text_field :publisher %>
-</div>
-
-<div class="field">
-  <%= b.label :smallImage %>
-  <%= b.text_field :smallImage %>
-</div>
-
-<div class="field">
-  <%= b.label :mediumImage %>
-  <%= b.text_field :mediumImage %>
-</div>
-
-<div class="field">
-  <%= b.label :listPrice %>
-  <%= b.text_field :listPrice %>
-</div>
-
-<div class="actions">
-  <%= b.submit %>
-</div>
-
-
-<% end %>
+<%= render 'book' %>
