@@ -45,7 +45,7 @@ $action_return = "返却する"
 $operation = "操作"
 
 $button_submit = "送信"
-$button_edit = "編集"
+$button_edit = "情報の編集"
 $button_delete = "削除"
 
 $label_created_at = "作成日"
