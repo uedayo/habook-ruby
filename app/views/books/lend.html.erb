@@ -1,9 +1,8 @@
 <%= render 'detail' %>
 
 <% if @users.empty? %>
-<div class="center">いますぐ登録しましょう！</div>
 
-<%= render 'search' %>
+<%= render 'users/create_twitter' %>
 
 <% else %>
 <h2><%= $book_lend %></h2>
@@ -27,7 +26,7 @@
         <% end %>
     </tbody>
 </table>
-<% end %>
 <div class="center-horizontal">
     <%= link_to $user_add, users_path, :class => "btn btn-primary btn-large" %>
 </div>
+<% end %>

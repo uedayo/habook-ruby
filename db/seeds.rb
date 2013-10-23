@@ -19,7 +19,7 @@ Book.create(
     list_price: 3360,
     isbn: '4274068668',
     detail_page_url: 'http://www.amazon.co.jp/dp/4274068668',
-    number: 1,
+    volume: 1,
     status: 0,
     user_id: 1,
     published_at: '2011-12-01',
