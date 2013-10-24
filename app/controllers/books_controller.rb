@@ -84,6 +84,7 @@ class BooksController < ApplicationController
   def return
     @book = Book.find_by_isbn(params[:isbn])
     if @book.present?
+      @book.update_attribute(:read_count, @book.read_count + 1)
       @book.user.update_attribute(:read_count, @book.user.read_count + 1)
       @book.user.update_attribute(:reading_count, @book.user.reading_count - 1)
       @book.update_attributes(:user_id => 0, :status => 0)
